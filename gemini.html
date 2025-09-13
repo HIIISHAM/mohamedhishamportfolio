@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Hisham Hussian | Data Scientist Portfolio</title>
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #3498db; /* Bright Blue */
+            --background-color: #ecf0f1; /* Light Gray */
+            --card-background: #ffffff; /* White */
+            --text-color: #34495e; /* Dark Gray-Blue */
+            --light-text: #7f8c8d;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 1.8em;
+            padding-left: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            padding-right: 20px;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #bdc3c7;
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: var(--primary-color);
+        }
+
+        /* --- About Me Section --- */
+        #about {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        #about .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: var(--box-shadow);
+            border: 5px solid var(--card-background);
+        }
+        
+        #about .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* --- Experience Section --- */
+        .experience-item {
+            background: var(--card-background);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .experience-item h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .experience-item p {
+            margin-bottom: 0;
+        }
+        
+        .experience-item span {
+            color: var(--light-text);
+            font-style: italic;
+        }
+
+        /* --- Projects Section --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+        
+        .project-content .tags {
+            margin-top: 15px;
+        }
+
+        .project-content .tag {
+            display: inline-block;
+            background: #e0e0e0;
+            color: #555;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* --- Skills Section --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: var(--card-background);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 250px;
+            text-align: center;
+        }
+        
+        .skill-category h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-category li {
+            margin-bottom: 10px;
+        }
+
+        /* --- Contact Section --- */
+        #contact p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        .contact-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .contact-links a {
+            font-size: 1.1em;
+            text-decoration: none;
+            color: var(--secondary-color);
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: space-around;
+            }
+            nav ul li {
+                margin-left: 0;
+            }
+            #about {
+                flex-direction: column;
+                text-align: center;
+            }
+            h2 {
+                font-size: 2em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <h1>Mohamed Hisham Hussian</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="container">
+            <img src="image\pfp.webp" alt="Mohamed Hisham Hussian" class="profile-image">
+            <div class="about-text">
+                <h2>Unlocking Insights from Data</h2>
+                <p>
+                    Hello, my name is Mohamed Hisham, and I am passionate about working with data. I enjoy comparing datasets, identifying patterns, and creating visualizations that transform raw numbers into meaningful stories. My strength lies in deep analytical thinking and connecting insights in a way that makes them easy for others to understand.
+                </p>
+                <p>
+                    While I do not focus heavily on complex coding, my true value comes from interpreting data and communicating its meaning clearly through graphs, dashboards, and reports. For me, data is not just about numbers—it is about uncovering insights that help people and organizations see the bigger picture and make smarter decisions.
+                </p>
+            </div>
+        </section>
+
+        <section id="experience" class="container">
+            <h2>Career Experience</h2>
+            <div class="experience-item">
+                <h3>Data Analyst | Company Name</h3>
+                <span>January 2023 - Present</span>
+                <p>Describe your role and key accomplishments here. Focus on the impact you made through data analysis and insights.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Junior Analyst | Another Company</h3>
+                <span>June 2021 - December 2022</span>
+                <p>Describe your responsibilities in this role. Mention any reports, dashboards, or analyses you were responsible for.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>Projects Portfolio</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="image\ev.png" alt="EV Sales Chart">
+                    <div class="project-content">
+                        <h3>EV Sales & Charging Infrastructure Trends</h3>
+                        <p>Analyzed the relationship between the growth of EV sales and the availability of public/private charging ports to inform infrastructure investment.</p>
+                        <div class="tags">
+                           <span class="tag">Python</span>
+                           <span class="tag">Pandas</span>
+                           <span class="tag">Matplotlib</span>
+                           <span class="tag">Time-Series</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="image\2.png" alt="LA Crime Chart">
+                    <div class="project-content">
+                        <h3>Crime Analysis in Los Angeles</h3>
+                        <p>Explored LAPD crime data to identify peak crime hours, high-risk locations, and vulnerable victim demographics to aid in resource allocation.</p>
+                        <div class="tags">
+                           <span class="tag">Python</span>
+                           <span class="tag">Pandas</span>
+                           <span class="tag">Seaborn</span>
+                           <span class="tag">Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="image\3.png" alt="Adidas vs Nike Chart">
+                    <div class="project-content">
+                        <h3>Online Sports Revenue (Adidas vs. Nike)</h3>
+                        <p>Compared Adidas and Nike product data to uncover patterns in pricing, revenue, and customer behavior based on product descriptions.</p>
+                        <div class="tags">
+                           <span class="tag">Python</span>
+                           <span class="tag">Numpy</span>
+                           <span class="tag">Seaborn</span>
+                           <span class="tag">Business Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2>Core Competencies</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Pandas</li>
+                        <li>Numpy</li>
+                        <li>Matplotlib</li>
+                        <li>Seaborn</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Analytical Skills</h3>
+                    <ul>
+                        <li>Data Visualization</li>
+                        <li>Pattern Identification</li>
+                        <li>Deep Analytical Thinking</li>
+                        <li>Trend Analysis</li>
+                        <li>Reporting & Dashboards</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Clear Communication</li>
+                        <li>Storytelling with Data</li>
+                        <li>Problem-Solving</li>
+                        <li>Stakeholder Presentation</li>
+                        <li>Insight Interpretation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to discussing new projects and opportunities in data science.</p>
+            <div class="contact-links">
+                <a href="mailto:Mohamed.Hisham.CS@outlook.com">Mohamed.Hisham.CS@outlook.com</a>
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mohamed Hisham Hussian. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
